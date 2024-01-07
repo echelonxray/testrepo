@@ -1,0 +1,26 @@
+name: 'Test YAML'
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+  pull_request:
+  create:
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  linux-ubuntu_test:
+    runs-on: "ubuntu-latest"
+    steps:
+      - name: 'Checkout'
+        uses: actions/checkout@v4
+
+      - name: 'HT'
+        run: 'echo Hello, Test!'
+
+      - name: 'Git Show'
+        run: 'git show'
